@@ -46,6 +46,7 @@
 				<option value="emergency" selected>Emergency Open</option>
 				<option value="factory">Factory Reset</option>
 				<option value="wifi">WiFi Setting</option>
+				<option value="reboot">Reboot</option>
 			</select>
 
 			<div class="controls">
@@ -107,6 +108,10 @@
 				// wifi setter: EDROP\t${lowerDevice}#${hash16}\tWIFI\t${wifiname}\t${wifipwd}
                 //$"EDROP\t{DeviceId.Text.ToLower()}#{barcodeId}\tWIFI\t{WifiName.Text}\t{WifiPassword.Text}"
 				return `EDROP\t${lowerDevice}#${hash16}\tWIFI\t${wifiname}\t${wifipwd}`;
+			}
+			if (mode === "reboot") {
+				// Reboot: EDROP\t{deviceIdLower}#{hash16}\tRB
+				return `EDROP\t${lowerDevice}#${hash16}\tRB`;
 			}
 			// Emergency (default): EDROP\t{deviceIdLower}#{hash16}\tEO
 			return `EDROP\t${lowerDevice}#${hash16}\tEO`;
